@@ -14,3 +14,7 @@
 .done-block summary span{background:#e7ece8;padding:4px 7px;border-radius:20px;font-size:10px;letter-spacing:0}
 .delete-button.confirming{background:#a23b2a;border-color:#a23b2a;color:#fff}
 body{background:var(--paper);color:var(--ink)}
+
+@media(max-width:760px){.capture-form input,.capture-form select,.edit-dialog input,.edit-dialog select{font-size:16px}}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+button,.check-button{touch-action:manipulation}

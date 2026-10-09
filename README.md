@@ -40,3 +40,7 @@ Os dados não sincronizam entre aparelhos. A análise de e-mails, notificações
 1. Verificar se Entrada, Hoje e Próximas correspondem ao seu modo de organizar.
 2. Decidir se a sincronização entre dispositivos é necessária.
 3. Testar se a triagem de e-mails merece uma etapa própria.
+
+## Usar no iPhone
+
+Hospede a pasta em qualquer endereço HTTPS (por exemplo, GitHub Pages: Settings → Pages → Deploy from a branch → `main` / root). No Safari, abra o endereço, toque em Compartilhar e escolha “Adicionar à Tela de Início”. O app abre em tela cheia, com ícone próprio. Os dados ficam salvos no aparelho; a versão da tela de início e a do Safari guardam listas separadas.
