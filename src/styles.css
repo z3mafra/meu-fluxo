@@ -13,3 +13,4 @@
 .done-block summary{cursor:pointer;display:flex;align-items:center;gap:8px;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:#68756f;font-weight:700;margin-bottom:11px}
 .done-block summary span{background:#e7ece8;padding:4px 7px;border-radius:20px;font-size:10px;letter-spacing:0}
 .delete-button.confirming{background:#a23b2a;border-color:#a23b2a;color:#fff}
+body{background:var(--paper);color:var(--ink)}
