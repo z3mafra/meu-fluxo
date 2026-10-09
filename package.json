@@ -1,0 +1,10 @@
+{
+  "name": "meu-fluxo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Organizador pessoal de tarefas, em versão inicial.",
+  "scripts": {
+    "start": "node scripts/serve.mjs"
+  }
+}
