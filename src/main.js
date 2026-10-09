@@ -5,6 +5,7 @@ import { renderApp } from "./render.js";
 let tasks = readTasks();
 let view = "today";
 let areaFilter = "all";
+let doneOpen = false;
 let toastTimer;
 
 const root = document.querySelector("#app");
@@ -29,7 +30,7 @@ function notify(message) {
 }
 
 function render() {
-  root.innerHTML = renderApp({ tasks, view, areaFilter });
+  root.innerHTML = renderApp({ tasks, view, areaFilter, doneOpen });
   bindEvents();
 }
 
@@ -53,6 +54,8 @@ function bindEvents() {
     render();
   }));
 
+  root.querySelector(".done-block")?.addEventListener("toggle", (event) => { doneOpen = event.currentTarget.open; });
+
   root.querySelectorAll("[data-filter]").forEach((button) => button.addEventListener("click", () => {
     areaFilter = button.dataset.filter;
     render();
@@ -70,7 +73,6 @@ function bindEvents() {
     if (!title) return;
     tasks.unshift(createTask(title, form.elements.area.value));
     if (persist()) {
-      view = "inbox";
       render();
       notify("Tarefa adicionada à Entrada.");
     }
@@ -104,7 +106,6 @@ function bindEvents() {
     task.area = form.elements.area.value;
     task.status = form.elements.status.value;
     task.due = form.elements.due.value;
-    task.completed = false;
     if (persist()) {
       dialog.close();
       render();
@@ -115,6 +116,8 @@ function bindEvents() {
   root.querySelectorAll("[data-close-dialog]").forEach((button) => button.addEventListener("click", () => dialog.close()));
   root.querySelector("[data-delete-task]")?.addEventListener("click", () => {
     const id = editForm.elements.id.value;
+    const target = tasks.find((item) => item.id === id);
+    if (!window.confirm(`Excluir “${target?.title ?? "esta tarefa"}”?`)) return;
     tasks = tasks.filter((item) => item.id !== id);
     if (persist()) {
       dialog.close();

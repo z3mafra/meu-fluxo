@@ -16,7 +16,9 @@ Depois, abra <http://localhost:4173> no navegador. O servidor e o app usam apena
 
 - Captura rápida de tarefas, enviadas à Entrada.
 - Organização por área e situação: Entrada, Hoje, Próximas ou Aguardando.
-- Prazo opcional, conclusão, edição e exclusão.
+- Prazo opcional: tarefas atrasadas ou com prazo para hoje aparecem em Hoje, e as listas ficam ordenadas por prazo.
+- Conclusão, edição e exclusão (com confirmação). As concluídas ficam em “Concluídas”, na tela Tarefas, e podem ser reabertas.
+- Telas: Hoje, Próximas, Tarefas e Entrada.
 - Filtro por Trabalho, Casa e Lazer.
 - Salvamento local no navegador deste aparelho.
 
