@@ -114,16 +114,24 @@ function bindEvents() {
   });
 
   root.querySelectorAll("[data-close-dialog]").forEach((button) => button.addEventListener("click", () => dialog.close()));
-  root.querySelector("[data-delete-task]")?.addEventListener("click", () => {
+  const deleteButton = root.querySelector("[data-delete-task]");
+  deleteButton?.addEventListener("click", () => {
+    if (!deleteButton.classList.contains("confirming")) {
+      deleteButton.classList.add("confirming");
+      deleteButton.textContent = "Confirmar exclusão";
+      return;
+    }
     const id = editForm.elements.id.value;
-    const target = tasks.find((item) => item.id === id);
-    if (!window.confirm(`Excluir “${target?.title ?? "esta tarefa"}”?`)) return;
     tasks = tasks.filter((item) => item.id !== id);
     if (persist()) {
       dialog.close();
       render();
       notify("Tarefa excluída.");
     }
+  });
+  dialog?.addEventListener("close", () => {
+    deleteButton?.classList.remove("confirming");
+    if (deleteButton) deleteButton.textContent = "Excluir tarefa";
   });
 }
 
